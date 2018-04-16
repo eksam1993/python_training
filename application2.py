@@ -24,7 +24,6 @@ class Application2:
 
     def add_new_contact(self, contacts):
         wd = self.wd
-        self.add_new_contact()
         # add new contact
         wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
