@@ -64,3 +64,13 @@ class GroupHelper:
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contacts.email)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submint first contact
+        wd.find_element_by_name("Delete").click()
+        # confirm contact removal
+        wd.switch_to_alert().accept()
+        self.return_to_groups_page()
