@@ -1,1 +1,4 @@
-{}
+{
+  "test/test_add_group.py::test_add_empty_group": true,
+  "test/test_add_group.py::test_add_group": true
+}
