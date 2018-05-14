@@ -31,11 +31,14 @@ class GroupHelper:
     def delete_first_group(self):
         wd = self.app.wd
         self.open_groups_page()
-        # select first group
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_group()
         # submint first group
         wd.find_element_by_name("delete").click()
         self.return_to_groups_page()
+
+    def select_first_group(self):
+        # select first group
+        wd.find_element_by_name("selected[]").click()
 
     def return_to_groups_page(self):
             wd = self.app.wd
@@ -67,18 +70,21 @@ class GroupHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
-        # select first contact
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_contact()
         # submint first contact
         wd.find_element_by_name("Delete").click()
         # confirm contact removal
         wd.switch_to_alert().accept()
         self.return_to_groups_page()
 
+    def select_first_contact(self):
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+
     def mod_first_group(self, group):
         wd = self.app.wd
         self.open_groups_page()
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_group()
         wd.find_element_by_name("edit").click()
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
@@ -94,7 +100,7 @@ class GroupHelper:
 
     def mod_first_contact(self, contacts):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_contact()
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
