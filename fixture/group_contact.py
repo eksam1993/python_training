@@ -38,6 +38,7 @@ class GroupHelper:
 
     def select_first_group(self):
         # select first group
+        wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
     def return_to_groups_page(self):
@@ -79,6 +80,7 @@ class GroupHelper:
 
     def select_first_contact(self):
         # select first contact
+        wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
     def mod_first_group(self, group):
